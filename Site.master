@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server" style="height: 627px">
+    <div class="page" 
+        
+        
+        
+        style="background-image: url('/RestoMgmtSys/img/background-2136168_960_720.jpg'); background-repeat: no-repeat; height: 606px;">
+        <div class="header">
+            <div class="title">
+                <h1>
+                   
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   
+                    RESTAURENT MANAGEMENT SYSTEM 
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
+                    EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" 
+                    onmenuitemclick="NavigationMenu_MenuItemClick">
+                    <Items>
+                        <asp:MenuItem Text="User Management">
+                            <asp:MenuItem Text="Create User" Value="Create User" 
+                                NavigateUrl="~/CreateUser.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="User Outlook" Value="User Outlook" 
+                                NavigateUrl="~/UsersOutlook.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Edit/Delete User" Value="Edit User" 
+                                NavigateUrl="~/EditDeleteUser.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Change Password" Value="Change Password" 
+                                NavigateUrl="~/ChangePassword.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Sign Out" Value="Sign Out" NavigateUrl="~/Login.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Menu Management">
+                            <asp:MenuItem Text="Add Menu Items" Value="Add Menu Items" 
+                                NavigateUrl="~/AddMenu.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="View Full Menu" Value="View Full Menu" 
+                                NavigateUrl="~/ViewMenu.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Search Item" Value="Search Item" 
+                                NavigateUrl="~/SearchItem.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Edit/Delete Item" Value="Edit Item" 
+                                NavigateUrl="~/EditDeleteItem.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Customer Management" Value="Customer Management">
+                            <asp:MenuItem Text="Add Customer" Value="Add Customer" 
+                                NavigateUrl="~/AddCustomer.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="View All Customer" Value="View All Customer" 
+                                NavigateUrl="~/ViewAllCustomer.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Edit/Delete Customer" Value="Delete Customer" 
+                                NavigateUrl="~/EditDeleteCustomer.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Reservation Management" Value="Food Management">
+                            <asp:MenuItem Text="Add Reservation" Value="Add Reservation" 
+                                NavigateUrl="~/AddReservation.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Search Reservation" Value="Search Reservation" 
+                                NavigateUrl="~/SearchReservation.aspx">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Billing" Value="Reports">
+                            <asp:MenuItem NavigateUrl="~/Billing.aspx" Text="Bill" Value="Bill">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Accountancy &amp; Sales" Value="Accountancy &amp; Sales">
+                            <asp:MenuItem Text="View Sales" Value="View Sales" 
+                                NavigateUrl="~/ViewSales.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="View Gst Collection" Value="View Gst Collection" 
+                                NavigateUrl="~/ViewGst.aspx">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <p>
+                    <asp:Image ID="Image1" runat="server" Height="396px" 
+                        ImageUrl="~/img/Restaurantserver-GettyImages-622007684-5a465d770d327a003798828b.jpg" 
+                        Width="935px" />
+                    <br />
+                </p>
+            </asp:ContentPlaceHolder>
+        </div>
+        
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
